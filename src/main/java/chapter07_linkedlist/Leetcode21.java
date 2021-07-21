@@ -57,12 +57,14 @@ public class Leetcode21 {
             res = res.next;
         }while (l1!= null && l2!= null);
         ListNode l3 = l1 == null ? l2 : l1;
-        do{
+        //因为链表有序，所以这里不用再一个个插入节点了
+        res.next = l3;
+        /*do{
             ListNode node =  new ListNode(l3.val);
             l3 = l3.next;
             res.next = node;
             res = res.next;
-        }while (l3 != null);
+        }while (l3 != null);*/
         return first.next.next;
     }
 
