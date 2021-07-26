@@ -6,7 +6,7 @@ package chapter12_sorts;
  */
 public class QuickSort {
     public static void main(String[] args) {
-        int[] arr = {3,5,2,1,65,7,2,4,};
+        int[] arr = {3,5,2,1,65,7,2,4};
         quickSort(arr,8);
         for (int i:arr) {
             System.out.println(i);
