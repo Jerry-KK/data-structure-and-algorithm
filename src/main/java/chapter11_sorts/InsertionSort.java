@@ -1,8 +1,5 @@
 package chapter11_sorts;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.Future;
 
 /**
  * @author koujn
@@ -19,17 +16,21 @@ public class InsertionSort {
 
     // 插入排序，a表示数组，n表示数组大小
     public static void insertionSort(int[] a, int n) {
+        if(n <= 1) {
+            return;
+        }
         for (int i = 1; i < n; i++) {
-            int tmp = a[i];
+            int value = a[i];
             int j = i-1;
             for (; j >= 0; j--) {
-                if(a[j] > tmp) {
-                   a[j] = a[j-1];
+                //每次判断完后移一个元素
+                if(a[j] > value) {
+                   a[j+1] = a[j];
                 }else {
                     break;
                 }
             }
-            a[j] = tmp;
+            a[j+1] = value;
         }
     }
 }
