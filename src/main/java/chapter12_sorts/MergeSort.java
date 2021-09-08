@@ -27,7 +27,7 @@ public class MergeSort {
         int n = p + (r - p)/2;
         mergeSort(arr, p, n);
         mergeSort(arr, n + 1, r);
-        merge(arr,p,n,r);
+        merge2(arr,p,n,r);
     }
 
     public static void merge(int[] arr, int p, int n,int r){
@@ -51,6 +51,57 @@ public class MergeSort {
         }
         for (int k = p,x = 0; k <=r ; k++) {
             arr[k] = res[x++];
+        }
+    }
+
+    public static void merge2(int[] arr, int p, int n,int r){
+        int[] res = new int[r-p+1];
+        int num = 0, i = p, j = n+1;
+        while (i<=n && j <= r) {
+            if(arr[i] < arr[j]) {
+                res[num++] = arr[i++];
+            } else {
+                res[num++] = arr[j++];
+            }
+        }
+
+        //尝试减少if else
+        int start = i,end = n;
+        if(j <= r){
+            start = j;
+            end = r;
+        }
+        while (start <= end) {
+            res[num++] = arr[start++];
+        }
+
+        for (int k = p,x = 0; k <=r ; k++) {
+            arr[k] = res[x++];
+        }
+    }
+
+    public static void merge3(int[] arr, int p, int n,int r){
+        int[] res = new int[r-p+1];
+        int num = 0, i = p, j = n+1;
+
+        //设置哨兵
+        //取左右两数组最后一位比较，判断出最后一位在左边还是右边
+        //未完成
+        int start = j,end = r;
+        if(arr[n] > arr[r]){
+            start = i;
+            end = n;
+
+        }
+        while (start++<=end) {
+            if(arr[i] < arr[j]) {
+                res[num++] = arr[i++];
+            } else {
+                res[num++] = arr[j++];
+            }
+        }
+        for (int k = p,x = 0; k <=r ;) {
+            arr[k++] = res[x++];
         }
     }
 }
