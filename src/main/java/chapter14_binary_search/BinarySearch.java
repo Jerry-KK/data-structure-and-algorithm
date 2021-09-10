@@ -29,9 +29,14 @@ public class BinarySearch {
         return -1;
     }
 
+    //普通写法
     public static int bsearch(int[] a, int n, int value) {
         int low = 0;
         int high = n - 1;
+        /**
+         * 这里的条件是low <= high 而不能是 low < high
+         * 因为如果是low < high而恰好low == high。则不进入判断，直接return -1
+         */
         while (low <= high) {
 //            int mid = (low + high)/2;
             //如果 low 和 high 比较大的话，两者之和就有可能会溢出
@@ -46,11 +51,6 @@ public class BinarySearch {
             }
         }
         return -1;
-    }
-
-    public static double getSquareRoot(double num) {
-        //
-        return num;
     }
 
 
