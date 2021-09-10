@@ -1,4 +1,4 @@
-package leetcode;
+package chapter14_binary_search;
 
 /**
  * @author koujn
