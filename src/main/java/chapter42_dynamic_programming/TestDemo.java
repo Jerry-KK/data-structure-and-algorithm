@@ -24,6 +24,7 @@ public class TestDemo {
             }
         }
         //初始status为0，只有一个字符时长度也为1，所以最终结果要加1
+        //这里错误了，应该找到status中的最大值返回
         for (int k = n-1 ; k >= 0 ; --k) {
             if (status[k] != 0)
                 return status[k] + 1;
